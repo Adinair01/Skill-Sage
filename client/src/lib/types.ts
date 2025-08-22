@@ -9,6 +9,12 @@ export interface AssessmentData {
   educationLevel: string;
   fieldOfStudy: string;
   learningStyle: string;
+  workEnvironment?: string;
+  salaryExpectations?: string;
+  workLifeBalance?: string;
+  geographicPreference?: string;
+  previousExperience?: string;
+  careerChangeReason?: string;
 }
 
 export interface CareerPath {

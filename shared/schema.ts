@@ -18,6 +18,12 @@ export const assessments = pgTable("assessments", {
   educationLevel: text("education_level").notNull(),
   fieldOfStudy: text("field_of_study"),
   learningStyle: text("learning_style").notNull(),
+  workEnvironment: text("work_environment"),
+  salaryExpectations: text("salary_expectations"),
+  workLifeBalance: text("work_life_balance"),
+  geographicPreference: text("geographic_preference"),
+  previousExperience: text("previous_experience"),
+  careerChangeReason: text("career_change_reason"),
   completedAt: timestamp("completed_at").defaultNow(),
 });
 

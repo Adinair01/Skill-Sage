@@ -2,9 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertAssessmentSchema, insertRecommendationSchema, insertUserProgressSchema } from "@shared/schema";
-import { careerPaths } from "../client/src/lib/data/careers";
-import { courses } from "../client/src/lib/data/courses";
-import { internships } from "../client/src/lib/data/internships";
+import { generateCareerRecommendations, generateCourseRecommendations, generateInternshipRecommendations, AssessmentProfile } from "./gemini";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
@@ -42,18 +40,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Assessment not found" });
       }
 
-      // Generate recommendations based on user profile
-      const recommendedCareers = generateCareerRecommendations(assessment);
-      const recommendedCourses = generateCourseRecommendations(assessment);
-      const recommendedInternships = generateInternshipRecommendations(assessment);
-      const skillsGap = generateSkillsGapAnalysis(assessment);
+      // Create profile for Gemini AI
+      const profile: AssessmentProfile = {
+        skills: assessment.skills,
+        interests: assessment.interests,
+        careerGoals: assessment.careerGoals,
+        educationLevel: assessment.educationLevel,
+        fieldOfStudy: assessment.fieldOfStudy || '',
+        learningStyle: assessment.learningStyle,
+        workEnvironment: assessment.workEnvironment,
+        salaryExpectations: assessment.salaryExpectations,
+        workLifeBalance: assessment.workLifeBalance,
+        geographicPreference: assessment.geographicPreference,
+        previousExperience: assessment.previousExperience,
+        careerChangeReason: assessment.careerChangeReason
+      };
+
+      // Generate AI-powered recommendations
+      console.log('Generating AI-powered recommendations...');
+      const [recommendedCareers, recommendedCourses, recommendedInternships] = await Promise.all([
+        generateCareerRecommendations(profile),
+        generateCourseRecommendations(profile),
+        generateInternshipRecommendations(profile)
+      ]);
+
+      const skillsGap = generateBasicSkillsGap(assessment.skills);
 
       const recommendationData = {
         assessmentId,
-        careerPaths: recommendedCareers as any[],
-        courses: recommendedCourses as any[],
-        internships: recommendedInternships as any[],
-        skillsGap: skillsGap as any,
+        careerPaths: recommendedCareers,
+        courses: recommendedCourses,
+        internships: recommendedInternships,
+        skillsGap,
       };
 
       const recommendation = await storage.createRecommendation(recommendationData);
@@ -112,65 +130,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   return httpServer;
 }
 
-// Helper functions for generating recommendations
-function generateCareerRecommendations(assessment: any) {
-  const { skills, interests } = assessment;
-  
-  return careerPaths
-    .map(career => {
-      let matchScore = 0;
-      
-      // Calculate match based on interests
-      career.matchingInterests.forEach(interest => {
-        if (interests.includes(interest)) {
-          matchScore += 30;
-        }
-      });
-      
-      // Calculate match based on skills
-      career.requiredSkills.forEach(skill => {
-        const userSkillLevel = skills[skill.toLowerCase().replace(/\s+/g, '')] || 0;
-        matchScore += Math.min(userSkillLevel * 10, 40);
-      });
-      
-      return {
-        ...career,
-        matchScore: Math.min(matchScore, 100)
-      };
-    })
-    .sort((a, b) => b.matchScore - a.matchScore)
-    .slice(0, 3);
-}
-
-function generateCourseRecommendations(assessment: any) {
-  const { skills, interests, learningStyle } = assessment;
-  
-  return courses
-    .filter(course => {
-      return interests.some((interest: string) => 
-        course.category.toLowerCase().includes(interest.toLowerCase()) ||
-        course.title.toLowerCase().includes(interest.toLowerCase())
-      );
-    })
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 4);
-}
-
-function generateInternshipRecommendations(assessment: any) {
-  const { interests, careerGoals } = assessment;
-  
-  return internships
-    .filter(internship => {
-      return interests.some((interest: string) => 
-        internship.field.toLowerCase().includes(interest.toLowerCase()) ||
-        internship.title.toLowerCase().includes(interest.toLowerCase())
-      );
-    })
-    .slice(0, 3);
-}
-
-function generateSkillsGapAnalysis(assessment: any) {
-  const { skills } = assessment;
+// Helper function for basic skills gap analysis
+function generateBasicSkillsGap(skills: Record<string, number>) {
   const industryStandards = {
     programming: 4,
     dataanalysis: 4,

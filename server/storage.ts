@@ -71,9 +71,9 @@ export class MemStorage implements IStorage {
     );
   }
 
-  async createRecommendation(insertRecommendation: InsertRecommendation): Promise<Recommendation> {
+  async createRecommendation(insertRecommendation: any): Promise<any> {
     const id = randomUUID();
-    const recommendation: Recommendation = {
+    const recommendation = {
       ...insertRecommendation,
       id,
       generatedAt: new Date(),
@@ -86,7 +86,7 @@ export class MemStorage implements IStorage {
     return this.recommendations.get(id);
   }
 
-  async getRecommendationByAssessmentId(assessmentId: string): Promise<Recommendation | undefined> {
+  async getRecommendationByAssessmentId(assessmentId: string): Promise<any | undefined> {
     return Array.from(this.recommendations.values()).find(
       (recommendation) => recommendation.assessmentId === assessmentId
     );

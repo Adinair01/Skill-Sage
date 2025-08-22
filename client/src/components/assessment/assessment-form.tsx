@@ -8,6 +8,7 @@ import SkillsSection from "./skills-section";
 import InterestsSection from "./interests-section";
 import GoalsSection from "./goals-section";
 import LearningStyleSection from "./learning-style-section";
+import DetailedQuestionsSection from "./detailed-questions-section";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -82,6 +83,8 @@ export default function AssessmentForm() {
         return <GoalsSection />;
       case 4:
         return <LearningStyleSection />;
+      case 5:
+        return <DetailedQuestionsSection />;
       default:
         return <SkillsSection />;
     }

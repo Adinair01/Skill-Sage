@@ -17,7 +17,13 @@ const defaultAssessment: AssessmentData = {
   careerGoals: "Short-term (6 months - 2 years)",
   educationLevel: "Currently in College",
   fieldOfStudy: "",
-  learningStyle: "visual"
+  learningStyle: "visual",
+  workEnvironment: "",
+  salaryExpectations: "",
+  workLifeBalance: "",
+  geographicPreference: "",
+  previousExperience: "",
+  careerChangeReason: ""
 };
 
 export function useAssessment() {
@@ -63,7 +69,7 @@ export function useAssessment() {
   };
 
   const nextStep = () => {
-    setCurrentStep(prev => Math.min(prev + 1, 4));
+    setCurrentStep(prev => Math.min(prev + 1, 5));
   };
 
   const prevStep = () => {
@@ -92,7 +98,7 @@ export function useAssessment() {
     prevStep,
     completeAssessment,
     resetAssessment,
-    totalSteps: 4,
-    progressPercentage: (currentStep / 4) * 100
+    totalSteps: 5,
+    progressPercentage: (currentStep / 5) * 100
   };
 }
