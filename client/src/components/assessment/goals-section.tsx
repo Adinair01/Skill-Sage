@@ -8,15 +8,15 @@ export default function GoalsSection() {
 
   return (
     <div data-testid="goals-section">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">Career Goals & Background</h3>
-      <div className="space-y-6">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Career Goals & Background</h3>
+      <div className="space-y-4 sm:space-y-6">
         <div>
-          <Label className="text-lg font-semibold text-gray-800 mb-3 block">Career Timeline</Label>
+          <Label className="text-base sm:text-lg font-semibold text-gray-800 mb-3 block">Career Timeline</Label>
           <Select 
             value={assessmentData.careerGoals} 
             onValueChange={(value) => updateField('careerGoals', value)}
           >
-            <SelectTrigger className="w-full p-4 border border-gray-300 rounded-xl" data-testid="select-career-goals">
+            <SelectTrigger className="w-full p-3 sm:p-4 border border-gray-300 rounded-xl touch-manipulation" data-testid="select-career-goals">
               <SelectValue placeholder="Select your career timeline" />
             </SelectTrigger>
             <SelectContent>
@@ -28,12 +28,12 @@ export default function GoalsSection() {
         </div>
         
         <div>
-          <Label className="text-lg font-semibold text-gray-800 mb-3 block">Education Level</Label>
+          <Label className="text-base sm:text-lg font-semibold text-gray-800 mb-3 block">Education Level</Label>
           <Select 
             value={assessmentData.educationLevel} 
             onValueChange={(value) => updateField('educationLevel', value)}
           >
-            <SelectTrigger className="w-full p-4 border border-gray-300 rounded-xl" data-testid="select-education-level">
+            <SelectTrigger className="w-full p-3 sm:p-4 border border-gray-300 rounded-xl touch-manipulation" data-testid="select-education-level">
               <SelectValue placeholder="Select your education level" />
             </SelectTrigger>
             <SelectContent>
@@ -47,13 +47,13 @@ export default function GoalsSection() {
         </div>
         
         <div>
-          <Label className="text-lg font-semibold text-gray-800 mb-3 block">Field of Study</Label>
+          <Label className="text-base sm:text-lg font-semibold text-gray-800 mb-3 block">Field of Study</Label>
           <Input
             type="text"
             placeholder="e.g., Computer Science, Business Administration"
             value={assessmentData.fieldOfStudy}
             onChange={(e) => updateField('fieldOfStudy', e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded-xl"
+            className="w-full p-3 sm:p-4 border border-gray-300 rounded-xl touch-manipulation"
             data-testid="input-field-of-study"
           />
         </div>

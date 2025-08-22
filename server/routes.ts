@@ -50,10 +50,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const recommendationData = {
         assessmentId,
-        careerPaths: recommendedCareers,
-        courses: recommendedCourses,
-        internships: recommendedInternships,
-        skillsGap,
+        careerPaths: recommendedCareers as any[],
+        courses: recommendedCourses as any[],
+        internships: recommendedInternships as any[],
+        skillsGap: skillsGap as any,
       };
 
       const recommendation = await storage.createRecommendation(recommendationData);
@@ -147,7 +147,7 @@ function generateCourseRecommendations(assessment: any) {
   
   return courses
     .filter(course => {
-      return interests.some(interest => 
+      return interests.some((interest: string) => 
         course.category.toLowerCase().includes(interest.toLowerCase()) ||
         course.title.toLowerCase().includes(interest.toLowerCase())
       );
@@ -161,7 +161,7 @@ function generateInternshipRecommendations(assessment: any) {
   
   return internships
     .filter(internship => {
-      return interests.some(interest => 
+      return interests.some((interest: string) => 
         internship.field.toLowerCase().includes(interest.toLowerCase()) ||
         internship.title.toLowerCase().includes(interest.toLowerCase())
       );

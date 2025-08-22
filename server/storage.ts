@@ -54,6 +54,7 @@ export class MemStorage implements IStorage {
     const assessment: Assessment = {
       ...insertAssessment,
       id,
+      userId: insertAssessment.userId || null,
       completedAt: new Date(),
     };
     this.assessments.set(id, assessment);
@@ -96,8 +97,8 @@ export class MemStorage implements IStorage {
     const progress: UserProgress = {
       ...insertProgress,
       id,
-      completedCourses: insertProgress.completedCourses || [],
-      achievements: insertProgress.achievements || [],
+      completedCourses: (insertProgress.completedCourses as string[]) || [],
+      achievements: (insertProgress.achievements as string[]) || [],
       milestones: insertProgress.milestones || {},
       progressPercentage: insertProgress.progressPercentage || 0,
       updatedAt: new Date(),
@@ -121,6 +122,8 @@ export class MemStorage implements IStorage {
     const updated: UserProgress = {
       ...existing,
       ...updateData,
+      completedCourses: (updateData.completedCourses as string[]) || existing.completedCourses,
+      achievements: (updateData.achievements as string[]) || existing.achievements,
       updatedAt: new Date(),
     };
     

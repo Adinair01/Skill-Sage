@@ -162,21 +162,21 @@ export default function ProgressSection() {
   ];
 
   return (
-    <section id="progress" className="bg-gradient-to-br from-gray-50 to-blue-50 py-20" data-testid="progress-section">
+    <section id="progress" className="bg-gradient-to-br from-gray-50 to-blue-50 py-12 sm:py-16 lg:py-20" data-testid="progress-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Learning Roadmap</h2>
-          <p className="text-xl text-gray-600">Track your progress and celebrate achievements</p>
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Learning Roadmap</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-4">Track your progress and celebrate achievements</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {/* Progress Overview */}
           <Card className="shadow-lg border border-gray-100" data-testid="progress-overview">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Overall Progress</h3>
-              <div className="text-center mb-6">
-                <div className="relative w-32 h-32 mx-auto mb-4">
-                  <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Overall Progress</h3>
+              <div className="text-center mb-4 sm:mb-6">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-3 sm:mb-4">
+                  <svg className="w-24 h-24 sm:w-32 sm:h-32 transform -rotate-90" viewBox="0 0 36 36">
                     <path 
                       className="text-gray-200" 
                       stroke="currentColor" 
@@ -194,10 +194,10 @@ export default function ProgressSection() {
                     />
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-gray-900">{userProgress.progressPercentage}%</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-900">{userProgress.progressPercentage}%</span>
                   </div>
                 </div>
-                <p className="text-gray-600">{completedMilestones} of {totalMilestones} milestones completed</p>
+                <p className="text-gray-600 text-sm sm:text-base">{completedMilestones} of {totalMilestones} milestones completed</p>
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
@@ -218,24 +218,24 @@ export default function ProgressSection() {
 
           {/* Achievement Badges */}
           <Card className="shadow-lg border border-gray-100" data-testid="achievement-badges">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Achievement Badges</h3>
-              <div className="grid grid-cols-3 gap-4">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Achievement Badges</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                 {achievements.map((achievement) => {
                   const IconComponent = achievement.icon;
                   return (
                     <div key={achievement.id} className="text-center" data-testid={`badge-${achievement.id}`}>
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 ${
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-2 ${
                         achievement.earned 
                           ? `bg-gradient-to-r ${achievement.gradient}`
                           : 'bg-gray-300'
                       }`}>
                         <IconComponent 
                           className={achievement.earned ? 'text-white' : 'text-gray-500'} 
-                          size={20} 
+                          size={16} 
                         />
                       </div>
-                      <span className={`text-xs ${achievement.earned ? 'text-gray-600' : 'text-gray-400'}`}>
+                      <span className={`text-xs ${achievement.earned ? 'text-gray-600' : 'text-gray-400'} leading-tight`}>
                         {achievement.name}
                       </span>
                     </div>
@@ -247,17 +247,17 @@ export default function ProgressSection() {
 
           {/* Next Steps */}
           <Card className="shadow-lg border border-gray-100" data-testid="next-steps">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Next Steps</h3>
-              <div className="space-y-4">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Next Steps</h3>
+              <div className="space-y-3 sm:space-y-4">
                 {nextSteps.map((step) => (
                   <div key={step.id} className="flex items-start space-x-3" data-testid={`next-step-${step.id}`}>
-                    <div className={`w-8 h-8 ${step.color} rounded-full flex items-center justify-center mt-1 flex-shrink-0`}>
-                      <span className="text-white text-sm font-bold">{step.id}</span>
+                    <div className={`w-6 h-6 sm:w-8 sm:h-8 ${step.color} rounded-full flex items-center justify-center mt-1 flex-shrink-0`}>
+                      <span className="text-white text-xs sm:text-sm font-bold">{step.id}</span>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{step.title}</h4>
-                      <p className="text-sm text-gray-600">Due: {step.dueDate}</p>
+                    <div className="min-w-0">
+                      <h4 className="font-semibold text-gray-900 text-sm sm:text-base">{step.title}</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">Due: {step.dueDate}</p>
                     </div>
                   </div>
                 ))}
@@ -268,24 +268,24 @@ export default function ProgressSection() {
 
         {/* Timeline Roadmap */}
         <Card className="shadow-lg border border-gray-100" data-testid="timeline-roadmap">
-          <CardContent className="p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">6-Month Career Roadmap</h3>
+          <CardContent className="p-4 sm:p-6 lg:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">6-Month Career Roadmap</h3>
             <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+              <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gray-200"></div>
               
               {timelineItems.map((item, index) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={item.id} className={`relative flex items-start space-x-6 ${index < timelineItems.length - 1 ? 'pb-8' : ''}`} data-testid={`timeline-item-${item.id}`}>
-                    <div className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-full flex items-center justify-center flex-shrink-0 z-10`}>
-                      <IconComponent className="text-white" size={24} />
+                  <div key={item.id} className={`relative flex items-start space-x-4 sm:space-x-6 ${index < timelineItems.length - 1 ? 'pb-6 sm:pb-8' : ''}`} data-testid={`timeline-item-${item.id}`}>
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${item.gradient} rounded-full flex items-center justify-center flex-shrink-0 z-10`}>
+                      <IconComponent className="text-white" size={20} />
                     </div>
-                    <div className="flex-grow">
-                      <div className="flex items-center justify-between mb-2">
-                        <h4 className={`text-lg font-semibold ${item.status === 'pending' ? 'text-gray-500' : 'text-gray-900'}`}>
+                    <div className="flex-grow min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1">
+                        <h4 className={`text-base sm:text-lg font-semibold ${item.status === 'pending' ? 'text-gray-500' : 'text-gray-900'}`}>
                           {item.title}
                         </h4>
-                        <span className={`text-sm font-semibold ${
+                        <span className={`text-xs sm:text-sm font-semibold ${
                           item.status === 'completed' 
                             ? 'text-green-600' 
                             : item.status === 'in-progress' 
@@ -295,14 +295,14 @@ export default function ProgressSection() {
                           {item.status === 'completed' ? 'Completed' : item.status === 'in-progress' ? 'In Progress' : 'Pending'}
                         </span>
                       </div>
-                      <p className={`mb-3 ${item.status === 'pending' ? 'text-gray-500' : 'text-gray-600'}`}>
+                      <p className={`mb-3 text-sm sm:text-base ${item.status === 'pending' ? 'text-gray-500' : 'text-gray-600'}`}>
                         {item.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {item.milestones.map((milestone, milestoneIndex) => (
                           <span 
                             key={milestoneIndex}
-                            className={`px-3 py-1 text-sm rounded-full ${
+                            className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full ${
                               item.status === 'completed'
                                 ? 'bg-green-100 text-green-800'
                                 : item.status === 'in-progress' && milestoneIndex === 0

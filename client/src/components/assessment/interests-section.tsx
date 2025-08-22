@@ -24,12 +24,14 @@ export default function InterestsSection() {
 
   return (
     <div data-testid="interests-section">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">Interest Categories</h3>
-      <div className="grid md:grid-cols-2 gap-4">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Interest Categories</h3>
+      <p className="text-gray-600 mb-6 text-sm sm:text-base">Select all areas that interest you (multiple selections allowed)</p>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {interestCategories.map((category) => (
           <label 
             key={category.id}
-            className={`interest-card flex items-center p-4 border rounded-xl cursor-pointer hover:border-blue-500 transition-colors ${
+            className={`interest-card flex items-start p-4 sm:p-5 border rounded-xl cursor-pointer hover:border-blue-500 transition-colors touch-manipulation ${
               assessmentData.interests.includes(category.id) 
                 ? 'border-blue-500 bg-blue-50' 
                 : 'border-gray-200'
@@ -39,14 +41,18 @@ export default function InterestsSection() {
             <Checkbox
               checked={assessmentData.interests.includes(category.id)}
               onCheckedChange={(checked) => handleInterestChange(category.id, !!checked)}
-              className="mr-4"
+              className="mr-3 sm:mr-4 mt-0.5 touch-manipulation"
             />
-            <div>
-              <div className="font-semibold text-gray-900">{category.label}</div>
-              <div className="text-sm text-gray-600">{category.description}</div>
+            <div className="flex-1 min-w-0">
+              <div className="font-semibold text-gray-900 text-sm sm:text-base">{category.label}</div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">{category.description}</div>
             </div>
           </label>
         ))}
+      </div>
+      
+      <div className="mt-4 text-xs sm:text-sm text-gray-500">
+        Selected: {assessmentData.interests.length} of {interestCategories.length} categories
       </div>
     </div>
   );

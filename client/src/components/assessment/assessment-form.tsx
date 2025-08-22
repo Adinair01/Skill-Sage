@@ -88,17 +88,21 @@ export default function AssessmentForm() {
   };
 
   return (
-    <section id="assessment" className="bg-white py-20" data-testid="assessment-section">
+    <section id="assessment" className="bg-white py-12 sm:py-16 lg:py-20" data-testid="assessment-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Career Assessment</h2>
-          <p className="text-xl text-gray-600">Complete our comprehensive assessment to get personalized recommendations</p>
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Career Assessment</h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-4">Complete our comprehensive assessment to get personalized recommendations</p>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex justify-between items-center mb-2 text-sm text-gray-600">
+            <span>Step {currentStep} of {totalSteps}</span>
+            <span>{Math.round(progressPercentage)}% Complete</span>
+          </div>
           <Progress 
             value={progressPercentage} 
-            className="h-3"
+            className="h-2 sm:h-3"
             data-testid="assessment-progress"
           />
         </div>
@@ -106,22 +110,22 @@ export default function AssessmentForm() {
         {isGenerating ? (
           <Card className="shadow-xl border border-gray-100">
             <CardContent className="pt-6">
-              <div className="text-center py-20">
-                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-                <p className="text-gray-600">Analyzing your profile and generating recommendations...</p>
+              <div className="text-center py-12 sm:py-20">
+                <div className="inline-block animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-blue-600 mb-4"></div>
+                <p className="text-gray-600 text-sm sm:text-base px-4">Analyzing your profile and generating recommendations...</p>
               </div>
             </CardContent>
           </Card>
         ) : (
           <Card className="shadow-xl border border-gray-100">
-            <CardContent className="p-8">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
               {renderCurrentStep()}
 
-              <div className="flex justify-between mt-8">
+              <div className="flex flex-col sm:flex-row justify-between gap-4 mt-6 sm:mt-8">
                 <Button
                   onClick={prevStep}
                   variant="outline"
-                  className={`${currentStep === 1 ? 'invisible' : ''}`}
+                  className={`${currentStep === 1 ? 'invisible' : ''} w-full sm:w-auto order-2 sm:order-1`}
                   data-testid="button-previous"
                 >
                   <ChevronLeft className="mr-2" size={16} />
@@ -132,7 +136,7 @@ export default function AssessmentForm() {
                   <Button
                     onClick={handleGenerateRecommendations}
                     disabled={generateRecommendations.isPending}
-                    className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white"
+                    className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white w-full sm:w-auto order-1 sm:order-2"
                     data-testid="button-generate-recommendations"
                   >
                     <Sparkles className="mr-2" size={16} />
@@ -141,7 +145,7 @@ export default function AssessmentForm() {
                 ) : (
                   <Button
                     onClick={nextStep}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white w-full sm:w-auto order-1 sm:order-2"
                     data-testid="button-next"
                   >
                     Next
