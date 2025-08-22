@@ -1,0 +1,65 @@
+Create a modern, responsive AI Career & Skill Development Advisor web application with the following specifications:
+CORE FEATURES:
+
+Interactive Assessment Form:
+
+Skills assessment (technical, soft skills with rating sliders)
+Interest categories (Technology, Business, Creative, Science, etc. with checkboxes)
+Career goals dropdown (Short-term, Long-term)
+Current education level and field of study
+Preferred learning style (Visual, Hands-on, Reading, etc.)
+
+
+Smart Recommendation Engine:
+
+Career path suggestions based on skills + interests
+Specific skill-building course recommendations with links
+Internship opportunity matches by field
+Progress tracking with milestone checkboxes
+Personalized learning roadmap with timeline
+
+
+Modern UI/UX:
+
+Clean, professional design with gradient backgrounds
+Interactive progress bars and skill meters
+Card-based layout for recommendations
+Mobile-responsive design
+Smooth animations and transitions
+
+
+Technical Implementation:
+
+Use vanilla JavaScript or React (your choice)
+Local storage for saving user progress
+Dynamic content generation based on user inputs
+Interactive charts/visualizations for skills
+Mock API integration for course/internship data
+
+
+
+BONUS FEATURES TO INCLUDE:
+
+Skills gap analysis with visual charts
+Industry trend integration (mock data)
+Achievement badges system
+Export recommendations as PDF
+Social sharing of career roadmap
+
+DESIGN REQUIREMENTS:
+
+Professional color scheme (blues, purples, whites)
+Clean typography and proper spacing
+Interactive elements with hover effects
+Loading animations for recommendations
+Success/completion animations
+
+DATA STRUCTURE:
+Create realistic mock data for:
+
+20+ career paths across different fields
+50+ skill-building courses with descriptions
+30+ internship opportunities
+Industry growth statistics
+
+Make this a production-ready prototype that demonstrates real value for students planning their careers. Focus on user experience and make it feel like a professional tool that students would actually use.
