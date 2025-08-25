@@ -1,46 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Ana&family=Use+Your+Telescope&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(210, 25%, 7.8431%);
-  --card: hsl(180, 6.6667%, 97.0588%);
-  --card-foreground: hsl(210, 25%, 7.8431%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(210, 25%, 7.8431%);
-  --primary: hsl(217, 91%, 60%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 25%, 7.8431%);
-  --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(210, 25%, 7.8431%);
-  --accent: hsl(217, 91%, 95%);
-  --accent-foreground: hsl(217, 91%, 60%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --ring: hsl(217, 91%, 60%);
-  --chart-1: hsl(217, 91%, 60%);
-  --chart-2: hsl(142, 76%, 36%);
-  --chart-3: hsl(47, 92%, 56%);
-  --chart-4: hsl(120, 61%, 50%);
-  --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(180, 6.6667%, 97.0588%);
-  --sidebar-foreground: hsl(210, 25%, 7.8431%);
-  --sidebar-primary: hsl(217, 91%, 60%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(217, 91%, 95%);
-  --sidebar-accent-foreground: hsl(217, 91%, 60%);
-  --sidebar-border: hsl(214, 32%, 91%);
-  --sidebar-ring: hsl(217, 91%, 60%);
-  --font-sans: 'Inter', 'Open Sans', sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: 1.3rem;
+  /* Professional Color Scheme - Cream Background with Yellow Tint */
+  --background: hsl(45, 33%, 97%); /* Cream with yellow tint */
+  --foreground: hsl(25, 15%, 25%); /* Warm dark brown for text */
+  --card: hsl(45, 30%, 95%); /* Slightly darker cream */
+  --card-foreground: hsl(25, 15%, 25%);
+  --popover: hsl(45, 33%, 97%);
+  --popover-foreground: hsl(25, 15%, 25%);
+  
+  /* Burgundy and Brown Color Palette */
+  --primary: hsl(340, 45%, 35%); /* Burgundy */
+  --primary-foreground: hsl(45, 33%, 97%); /* Cream for text on burgundy */
+  --secondary: hsl(25, 35%, 45%); /* Medium brown */
+  --secondary-foreground: hsl(45, 33%, 97%);
+  --muted: hsl(45, 25%, 90%); /* Light cream */
+  --muted-foreground: hsl(25, 20%, 35%);
+  --accent: hsl(25, 30%, 85%); /* Light brown accent */
+  --accent-foreground: hsl(25, 15%, 25%);
+  --destructive: hsl(0, 60%, 45%); /* Dark red */
+  --destructive-foreground: hsl(45, 33%, 97%);
+  --border: hsl(25, 25%, 80%); /* Light brown border */
+  --input: hsl(45, 30%, 95%);
+  --ring: hsl(340, 45%, 35%);
+  
+  /* Chart Colors - Professional Browns and Burgundies */
+  --chart-1: hsl(340, 45%, 35%); /* Burgundy */
+  --chart-2: hsl(25, 35%, 45%); /* Medium brown */
+  --chart-3: hsl(15, 40%, 55%); /* Hazelnut */
+  --chart-4: hsl(30, 30%, 40%); /* Dark brown */
+  --chart-5: hsl(20, 25%, 35%); /* Dark chocolate */
+  
+  /* Sidebar Colors */
+  --sidebar: hsl(45, 30%, 95%);
+  --sidebar-foreground: hsl(25, 15%, 25%);
+  --sidebar-primary: hsl(340, 45%, 35%);
+  --sidebar-primary-foreground: hsl(45, 33%, 97%);
+  --sidebar-accent: hsl(25, 30%, 85%);
+  --sidebar-accent-foreground: hsl(25, 15%, 25%);
+  --sidebar-border: hsl(25, 25%, 80%);
+  --sidebar-ring: hsl(340, 45%, 35%);
+  
+  /* Professional Font Stack */
+  --font-sans: 'Times New Roman', 'Georgia', serif;
+  --font-serif: 'Times New Roman', 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+  --font-display: 'Tangerine', cursive;
+  --font-accent: 'Ana', cursive;
+  --font-special: 'Use Your Telescope', cursive;
+  
+  --radius: 0.5rem; /* More conservative border radius */
   --shadow-2xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
   --shadow-xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
   --shadow-sm: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 0%, 0.1);
@@ -52,64 +65,88 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
   
-  /* Career Advisor specific colors */
-  --blue-50: hsl(214, 100%, 97%);
-  --blue-500: hsl(217, 91%, 60%);
-  --blue-600: hsl(221, 83%, 53%);
-  --blue-700: hsl(224, 76%, 48%);
-  --purple-50: hsl(270, 100%, 98%);
-  --purple-500: hsl(267, 84%, 70%);
-  --purple-600: hsl(271, 81%, 56%);
-  --purple-700: hsl(274, 68%, 48%);
-  --teal-50: hsl(166, 76%, 97%);
-  --teal-500: hsl(173, 58%, 39%);
-  --teal-600: hsl(175, 60%, 33%);
-  --green-500: hsl(142, 76%, 36%);
-  --green-600: hsl(142, 71%, 29%);
-  --gray-50: hsl(210, 20%, 98%);
-  --gray-100: hsl(220, 14%, 96%);
-  --gray-200: hsl(220, 13%, 91%);
-  --gray-600: hsl(215, 14%, 34%);
-  --gray-900: hsl(224, 71%, 4%);
+  /* Professional Color Palette */
+  --burgundy-50: hsl(340, 45%, 95%);
+  --burgundy-100: hsl(340, 45%, 90%);
+  --burgundy-500: hsl(340, 45%, 35%);
+  --burgundy-600: hsl(340, 45%, 30%);
+  --burgundy-700: hsl(340, 45%, 25%);
+  --burgundy-800: hsl(340, 45%, 20%);
+  
+  --brown-50: hsl(25, 35%, 95%);
+  --brown-100: hsl(25, 35%, 90%);
+  --brown-200: hsl(25, 35%, 80%);
+  --brown-300: hsl(25, 35%, 70%);
+  --brown-400: hsl(25, 35%, 55%);
+  --brown-500: hsl(25, 35%, 45%);
+  --brown-600: hsl(25, 35%, 35%);
+  --brown-700: hsl(25, 35%, 25%);
+  --brown-800: hsl(25, 35%, 20%);
+  --brown-900: hsl(25, 35%, 15%);
+  
+  --hazelnut-50: hsl(15, 40%, 95%);
+  --hazelnut-100: hsl(15, 40%, 90%);
+  --hazelnut-500: hsl(15, 40%, 55%);
+  --hazelnut-600: hsl(15, 40%, 45%);
+  --hazelnut-700: hsl(15, 40%, 35%);
+  
+  --chocolate-50: hsl(20, 25%, 95%);
+  --chocolate-100: hsl(20, 25%, 90%);
+  --chocolate-500: hsl(20, 25%, 35%);
+  --chocolate-600: hsl(20, 25%, 30%);
+  --chocolate-700: hsl(20, 25%, 25%);
+  --chocolate-800: hsl(20, 25%, 20%);
+  
+  --cream-50: hsl(45, 33%, 97%);
+  --cream-100: hsl(45, 30%, 95%);
+  --cream-200: hsl(45, 25%, 90%);
+  --cream-300: hsl(45, 20%, 85%);
+  
+  --text-primary: hsl(25, 15%, 25%);
+  --text-secondary: hsl(25, 20%, 35%);
+  --text-muted: hsl(25, 15%, 45%);
 }
 
 .dark {
-  --background: hsl(0, 0%, 0%);
-  --foreground: hsl(200, 6.6667%, 91.1765%);
-  --card: hsl(228, 9.8039%, 10%);
-  --card-foreground: hsl(0, 0%, 85.0980%);
-  --popover: hsl(0, 0%, 0%);
-  --popover-foreground: hsl(200, 6.6667%, 91.1765%);
-  --primary: hsl(217, 91%, 60%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(195, 15%, 95%);
-  --secondary-foreground: hsl(210, 25%, 7.8431%);
-  --muted: hsl(0, 0%, 9.4118%);
-  --muted-foreground: hsl(210, 3%, 46%);
-  --accent: hsl(217, 70%, 8%);
-  --accent-foreground: hsl(217, 91%, 60%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(210, 5%, 15%);
-  --input: hsl(217, 28%, 18%);
-  --ring: hsl(217, 91%, 60%);
-  --chart-1: hsl(217, 91%, 60%);
-  --chart-2: hsl(142, 76%, 36%);
-  --chart-3: hsl(47, 92%, 56%);
-  --chart-4: hsl(120, 61%, 50%);
-  --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(228, 9.8039%, 10%);
-  --sidebar-foreground: hsl(0, 0%, 85.0980%);
-  --sidebar-primary: hsl(217, 91%, 60%);
-  --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(217, 70%, 8%);
-  --sidebar-accent-foreground: hsl(217, 91%, 60%);
-  --sidebar-border: hsl(217, 16%, 26%);
-  --sidebar-ring: hsl(217, 91%, 60%);
-  --font-sans: 'Inter', 'Open Sans', sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
-  --radius: 1.3rem;
+  --background: hsl(25, 15%, 10%);
+  --foreground: hsl(45, 30%, 90%);
+  --card: hsl(25, 15%, 15%);
+  --card-foreground: hsl(45, 30%, 90%);
+  --popover: hsl(25, 15%, 10%);
+  --popover-foreground: hsl(45, 30%, 90%);
+  --primary: hsl(340, 45%, 45%);
+  --primary-foreground: hsl(25, 15%, 10%);
+  --secondary: hsl(25, 35%, 35%);
+  --secondary-foreground: hsl(45, 30%, 90%);
+  --muted: hsl(25, 15%, 20%);
+  --muted-foreground: hsl(25, 20%, 60%);
+  --accent: hsl(25, 30%, 25%);
+  --accent-foreground: hsl(45, 30%, 90%);
+  --destructive: hsl(0, 60%, 55%);
+  --destructive-foreground: hsl(25, 15%, 10%);
+  --border: hsl(25, 15%, 25%);
+  --input: hsl(25, 15%, 20%);
+  --ring: hsl(340, 45%, 45%);
+  --chart-1: hsl(340, 45%, 45%);
+  --chart-2: hsl(25, 35%, 35%);
+  --chart-3: hsl(15, 40%, 45%);
+  --chart-4: hsl(30, 30%, 30%);
+  --chart-5: hsl(20, 25%, 25%);
+  --sidebar: hsl(25, 15%, 15%);
+  --sidebar-foreground: hsl(45, 30%, 90%);
+  --sidebar-primary: hsl(340, 45%, 45%);
+  --sidebar-primary-foreground: hsl(25, 15%, 10%);
+  --sidebar-accent: hsl(25, 30%, 25%);
+  --sidebar-accent-foreground: hsl(45, 30%, 90%);
+  --sidebar-border: hsl(25, 15%, 25%);
+  --sidebar-ring: hsl(340, 45%, 45%);
+  --font-sans: 'Times New Roman', 'Georgia', serif;
+  --font-serif: 'Times New Roman', 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+  --font-display: 'Tangerine', cursive;
+  --font-accent: 'Ana', cursive;
+  --font-special: 'Use Your Telescope', cursive;
+  --radius: 0.5rem;
   --shadow-2xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
   --shadow-xs: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05);
   --shadow-sm: 0px 1px 2px 0px hsl(0, 0%, 0%, 0.05), 0px 1px 3px 0px hsl(0, 0%, 0%, 0.1);
@@ -127,33 +164,59 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Times New Roman', 'Georgia', serif;
+    line-height: 1.6;
+  }
+  
+  /* Professional Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', 'Georgia', serif;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  /* Display fonts for special elements */
+  .font-display {
+    font-family: 'Tangerine', cursive;
+  }
+  
+  .font-accent {
+    font-family: 'Ana', cursive;
+  }
+  
+  .font-special {
+    font-family: 'Use Your Telescope', cursive;
   }
   
   /* Skill slider customization */
   .skill-slider {
-    @apply appearance-none bg-gray-200 h-2 rounded-lg cursor-pointer;
+    @apply appearance-none bg-brown-200 h-2 rounded-lg cursor-pointer;
   }
   
   .skill-slider::-webkit-slider-thumb {
-    @apply appearance-none w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full cursor-pointer;
+    @apply appearance-none w-4 h-4 bg-gradient-to-r from-burgundy-500 to-brown-600 rounded-full cursor-pointer;
   }
   
   .skill-slider::-moz-range-thumb {
-    @apply w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full cursor-pointer border-0;
+    @apply w-4 h-4 bg-gradient-to-r from-burgundy-500 to-brown-600 rounded-full cursor-pointer border-0;
   }
 }
 
-/* Gradient backgrounds */
-.gradient-blue-purple {
-  background: linear-gradient(135deg, var(--blue-500), var(--purple-600));
+/* Professional Gradient backgrounds */
+.gradient-burgundy-brown {
+  background: linear-gradient(135deg, var(--burgundy-500), var(--brown-600));
 }
 
-.gradient-purple-pink {
-  background: linear-gradient(135deg, var(--purple-500), hsl(340, 75%, 55%));
+.gradient-brown-hazelnut {
+  background: linear-gradient(135deg, var(--brown-500), var(--hazelnut-500));
 }
 
-.gradient-teal-green {
-  background: linear-gradient(135deg, var(--teal-500), var(--green-600));
+.gradient-hazelnut-chocolate {
+  background: linear-gradient(135deg, var(--hazelnut-500), var(--chocolate-600));
+}
+
+.gradient-cream-warm {
+  background: linear-gradient(135deg, var(--cream-50), var(--brown-100));
 }
 
 /* Animation classes */
@@ -180,9 +243,9 @@
   transition: width 1s ease-in-out;
 }
 
-/* Hover effects */
+/* Professional Hover effects */
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   transition: transform 0.3s ease;
 }
 
@@ -198,21 +261,25 @@
   transition: all 0.3s ease;
 }
 
-/* Button gradient effects */
-.btn-gradient-blue {
-  background: linear-gradient(135deg, var(--blue-600), var(--purple-600));
+/* Professional Button gradient effects */
+.btn-gradient-burgundy {
+  background: linear-gradient(135deg, var(--burgundy-600), var(--brown-700));
+  color: var(--cream-50);
 }
 
-.btn-gradient-blue:hover {
-  background: linear-gradient(135deg, var(--blue-700), var(--purple-700));
+.btn-gradient-burgundy:hover {
+  background: linear-gradient(135deg, var(--burgundy-700), var(--brown-800));
+  color: var(--cream-50);
 }
 
-.btn-gradient-green {
-  background: linear-gradient(135deg, hsl(142, 76%, 36%), var(--teal-600));
+.btn-gradient-brown {
+  background: linear-gradient(135deg, var(--brown-600), var(--chocolate-700));
+  color: var(--cream-50);
 }
 
-.btn-gradient-green:hover {
-  background: linear-gradient(135deg, var(--green-600), hsl(175, 60%, 28%));
+.btn-gradient-brown:hover {
+  background: linear-gradient(135deg, var(--brown-700), var(--chocolate-800));
+  color: var(--cream-50);
 }
 
 /* Enhanced responsive utilities */
@@ -250,3 +317,48 @@
     min-width: 20px;
   }
 }
+
+/* Professional Card Styling */
+.professional-card {
+  background: var(--cream-50);
+  border: 1px solid var(--brown-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.professional-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brown-300);
+}
+
+/* Professional Button Styling */
+.btn-professional {
+  background: var(--burgundy-500);
+  color: var(--cream-50);
+  border: 1px solid var(--burgundy-600);
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-professional:hover {
+  background: var(--burgundy-600);
+  border-color: var(--burgundy-700);
+  transform: translateY(-1px);
+}
+
+.btn-professional-secondary {
+  background: var(--brown-500);
+  color: var(--cream-50);
+  border: 1px solid var(--brown-600);
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-professional-secondary:hover {
+  background: var(--brown-600);
+  border-color: var(--brown-700);
+  transform: translateY(-1px);
+}
+

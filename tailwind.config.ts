@@ -22,10 +22,10 @@ export default {
           foreground: "var(--popover-foreground)",
         },
         primary: {
-          50: "var(--blue-50)",
-          500: "var(--blue-500)",
-          600: "var(--blue-600)",
-          700: "var(--blue-700)",
+          50: "var(--burgundy-50)",
+          500: "var(--burgundy-500)",
+          600: "var(--burgundy-600)",
+          700: "var(--burgundy-700)",
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
@@ -65,40 +65,61 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
-        // Career Advisor specific color palette
-        blue: {
-          50: "var(--blue-50)",
-          500: "var(--blue-500)",
-          600: "var(--blue-600)", 
-          700: "var(--blue-700)"
+        // Professional Color Palette
+        burgundy: {
+          50: "var(--burgundy-50)",
+          100: "var(--burgundy-100)",
+          500: "var(--burgundy-500)",
+          600: "var(--burgundy-600)",
+          700: "var(--burgundy-700)",
+          800: "var(--burgundy-800)"
         },
-        purple: {
-          50: "var(--purple-50)",
-          500: "var(--purple-500)",
-          600: "var(--purple-600)",
-          700: "var(--purple-700)"
+        brown: {
+          50: "var(--brown-50)",
+          100: "var(--brown-100)",
+          200: "var(--brown-200)",
+          300: "var(--brown-300)",
+          400: "var(--brown-400)",
+          500: "var(--brown-500)",
+          600: "var(--brown-600)",
+          700: "var(--brown-700)",
+          800: "var(--brown-800)",
+          900: "var(--brown-900)"
         },
-        teal: {
-          50: "var(--teal-50)",
-          500: "var(--teal-500)",
-          600: "var(--teal-600)"
+        hazelnut: {
+          50: "var(--hazelnut-50)",
+          100: "var(--hazelnut-100)",
+          500: "var(--hazelnut-500)",
+          600: "var(--hazelnut-600)",
+          700: "var(--hazelnut-700)"
         },
-        green: {
-          500: "var(--green-500)",
-          600: "var(--green-600)"
+        chocolate: {
+          50: "var(--chocolate-50)",
+          100: "var(--chocolate-100)",
+          500: "var(--chocolate-500)",
+          600: "var(--chocolate-600)",
+          700: "var(--chocolate-700)",
+          800: "var(--chocolate-800)"
         },
-        gray: {
-          50: "var(--gray-50)",
-          100: "var(--gray-100)",
-          200: "var(--gray-200)",
-          600: "var(--gray-600)",
-          900: "var(--gray-900)"
+        cream: {
+          50: "var(--cream-50)",
+          100: "var(--cream-100)",
+          200: "var(--cream-200)",
+          300: "var(--cream-300)"
+        },
+        text: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)"
         }
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        display: ["var(--font-display)"],
+        accent: ["var(--font-accent)"],
+        special: ["var(--font-special)"],
       },
       keyframes: {
         "accordion-down": {
@@ -156,10 +177,11 @@ export default {
         "scale-in": "scale-in 0.3s ease-out",
       },
       backgroundImage: {
-        "gradient-blue-purple": "linear-gradient(135deg, var(--blue-500), var(--purple-600))",
-        "gradient-purple-pink": "linear-gradient(135deg, var(--purple-500), hsl(340, 75%, 55%))",
-        "gradient-teal-green": "linear-gradient(135deg, var(--teal-500), var(--green-600))",
-        "gradient-hero": "linear-gradient(135deg, var(--blue-50), var(--purple-50), var(--teal-50))",
+        "gradient-burgundy-brown": "linear-gradient(135deg, var(--burgundy-500), var(--brown-600))",
+        "gradient-brown-hazelnut": "linear-gradient(135deg, var(--brown-500), var(--hazelnut-500))",
+        "gradient-hazelnut-chocolate": "linear-gradient(135deg, var(--hazelnut-500), var(--chocolate-600))",
+        "gradient-cream-warm": "linear-gradient(135deg, var(--cream-50), var(--brown-100))",
+        "gradient-hero": "linear-gradient(135deg, var(--cream-50), var(--brown-100), var(--hazelnut-50))",
       },
       boxShadow: {
         "career-card": "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",

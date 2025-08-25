@@ -8,35 +8,35 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-12" data-testid="footer">
+    <footer className="bg-chocolate-800 text-cream-50 py-12" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Brain className="text-white" size={20} />
+              <div className="w-10 h-10 bg-gradient-to-r from-burgundy-600 via-brown-600 to-chocolate-600 rounded-xl flex items-center justify-center">
+                <span className="text-cream-50 font-bold text-xl font-serif">S</span>
               </div>
-              <h3 className="text-xl font-bold">CareerAI Advisor</h3>
+              <h3 className="text-xl font-bold font-display">SkillSage</h3>
             </div>
-            <p className="text-gray-400 mb-4">Empowering students to discover and achieve their career goals through AI-powered guidance.</p>
+            <p className="text-cream-200 mb-4 font-serif">Empowering students to discover and achieve their career goals through AI-powered guidance and personalized career roadmaps.</p>
             <div className="flex space-x-4">
               <Button 
                 size="sm" 
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-burgundy-600 hover:bg-burgundy-700"
                 data-testid="social-twitter"
               >
                 <Twitter size={16} />
               </Button>
               <Button 
                 size="sm" 
-                className="bg-blue-800 hover:bg-blue-900"
+                className="bg-brown-600 hover:bg-brown-700"
                 data-testid="social-linkedin"
               >
                 <Linkedin size={16} />
               </Button>
               <Button 
                 size="sm" 
-                className="bg-gray-700 hover:bg-gray-600"
+                className="bg-chocolate-600 hover:bg-chocolate-700"
                 data-testid="social-github"
               >
                 <Github size={16} />
@@ -44,29 +44,29 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Career Guides</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Industry Reports</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Skill Assessments</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Interview Tips</a></li>
+            <h4 className="font-semibold mb-4 font-serif">Resources</h4>
+            <ul className="space-y-2 text-cream-200">
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Career Guides</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Industry Reports</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Skill Assessments</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Interview Tips</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+            <h4 className="font-semibold mb-4 font-serif">Support</h4>
+            <ul className="space-y-2 text-cream-200">
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Help Center</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Contact Us</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-cream-50 transition-colors font-serif">Terms of Service</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Share Your Progress</h4>
-            <p className="text-gray-400 mb-4">Share your career roadmap with friends and mentors</p>
+            <h4 className="font-semibold mb-4 font-serif">Share Your Progress</h4>
+            <p className="text-cream-200 mb-4 font-serif">Share your career roadmap with friends and mentors</p>
             <Button 
               onClick={shareRoadmap}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all"
+              className="w-full bg-gradient-to-r from-burgundy-600 to-brown-600 text-cream-50 hover:from-burgundy-700 hover:to-brown-700 transition-all font-serif"
               data-testid="button-share-roadmap"
             >
               <Share className="mr-2" size={16} />
@@ -74,8 +74,8 @@ export default function Footer() {
             </Button>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 CareerAI Advisor. All rights reserved. Built for students, by students.</p>
+        <div className="border-t border-chocolate-700 mt-8 pt-8 text-center text-cream-200">
+          <p className="font-serif">&copy; 2024 SkillSage. All rights reserved. Built for students, by students.</p>
         </div>
       </div>
     </footer>

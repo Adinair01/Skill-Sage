@@ -8,7 +8,7 @@ import Footer from "@/components/layout/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-cream-50 via-cream-100 to-brown-50">
       <Navigation />
       <Hero />
       <AssessmentForm />

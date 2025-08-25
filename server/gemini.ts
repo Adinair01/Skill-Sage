@@ -1,6 +1,16 @@
+// Minimal ambient type support for @google/genai to satisfy TS if types are missing
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { GoogleGenAI } from "@google/genai";
+import { env } from "node:process";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const GEMINI_API_KEY = env.GEMINI_API_KEY || "";
+if (!GEMINI_API_KEY) {
+  // Log once on startup to aid debugging when env var is missing
+  // Do not throw here to keep server booting; individual calls will surface a clear error.
+  console.warn("GEMINI_API_KEY is not set. AI recommendations will fail until it's configured.");
+}
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 export interface AssessmentProfile {
   skills: Record<string, number>;
@@ -64,6 +74,9 @@ export interface InternshipRecommendation {
 
 export async function generateCareerRecommendations(profile: AssessmentProfile): Promise<CareerRecommendation[]> {
   try {
+    if (!GEMINI_API_KEY) {
+      throw new Error("Missing GEMINI_API_KEY. Please set it in your environment.");
+    }
     const prompt = `As an expert career advisor, analyze this student profile and recommend 3 specific career paths:
 
 Profile:
@@ -133,12 +146,15 @@ Respond with JSON format for 3 careers.`;
     }));
   } catch (error) {
     console.error('Error generating career recommendations:', error);
-    return [];
+    throw error instanceof Error ? error : new Error('Career generation failed');
   }
 }
 
 export async function generateCourseRecommendations(profile: AssessmentProfile): Promise<CourseRecommendation[]> {
   try {
+    if (!GEMINI_API_KEY) {
+      throw new Error("Missing GEMINI_API_KEY. Please set it in your environment.");
+    }
     const prompt = `As an expert learning advisor, recommend 4 specific courses for this student profile:
 
 Profile:
@@ -206,12 +222,15 @@ Respond with JSON format for 4 courses.`;
     }));
   } catch (error) {
     console.error('Error generating course recommendations:', error);
-    return [];
+    throw error instanceof Error ? error : new Error('Course generation failed');
   }
 }
 
 export async function generateInternshipRecommendations(profile: AssessmentProfile): Promise<InternshipRecommendation[]> {
   try {
+    if (!GEMINI_API_KEY) {
+      throw new Error("Missing GEMINI_API_KEY. Please set it in your environment.");
+    }
     const prompt = `As an expert career advisor, recommend 3 specific internship opportunities for this student:
 
 Profile:
@@ -278,7 +297,7 @@ Respond with JSON format for 3 internships.`;
     }));
   } catch (error) {
     console.error('Error generating internship recommendations:', error);
-    return [];
+    throw error instanceof Error ? error : new Error('Internship generation failed');
   }
 }
 
