@@ -392,8 +392,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 **Made with ❤️ for career development and skill enhancement**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/SkillSage?style=social)](https://github.com/yourusername/SkillSage)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/SkillSage?style=social)](https://github.com/yourusername/SkillSage)
-
-</div>
-
