@@ -390,17 +390,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Drizzle ORM** for type-safe database operations
 
 ---
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/SkillSage/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/SkillSage/discussions)
-- **Email**: your.email@example.com
-
----
-
-<div align="center">
-
 **Made with ❤️ for career development and skill enhancement**
 
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/SkillSage?style=social)](https://github.com/yourusername/SkillSage)
