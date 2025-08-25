@@ -407,3 +407,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [![GitHub forks](https://img.shields.io/github/forks/yourusername/SkillSage?style=social)](https://github.com/yourusername/SkillSage)
 
 </div>
+
